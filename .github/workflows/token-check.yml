@@ -1,0 +1,19 @@
+name: token-check
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "test message"
+        required: false
+        default: "hello"
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo input
+        run: |
+          echo "message=${{ inputs.message }}"
+          echo "actor=${{ github.actor }}"
+          echo "repo=${{ github.repository }}"
